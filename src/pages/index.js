@@ -1,7 +1,7 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
 
-import Layout from "../components/layout"
+import Layout from "../layouts"
 import SEO from "../components/seo"
 
 const IndexPage = ({ data }) => {
@@ -10,8 +10,6 @@ const IndexPage = ({ data }) => {
   return (
     <Layout mainImage={node.frontmatter?.main_image?.childImageSharp.fluid}>
       <SEO title="Home" description={node.frontmatter.description} />
-      
-      <Link to="/valmentaja">Valmentaja</Link>
       
       <h1>{node.frontmatter.title}</h1>
       

@@ -1,8 +1,8 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 
-import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Layout from '../layouts'
+import SEO from '../components/seo'
 
 const Template = ({ data }) => {
   const { markdownRemark: page } = data;
@@ -13,7 +13,7 @@ const Template = ({ data }) => {
       <div className='customer-feedback-container'>
         <h1>{page.frontmatter.title}</h1>
         <div
-          className="page-content"
+          className='page-content'
           dangerouslySetInnerHTML={{ __html: page.html }}
         />
       </div>
