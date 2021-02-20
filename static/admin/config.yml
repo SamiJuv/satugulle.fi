@@ -27,6 +27,13 @@ collections:
           widget: "string",
           required: false,
         }
+      - {
+          label: "Main image",
+          name: "main_image",
+          widget: "image",
+          allow_multiple: false,
+          required: false,
+        }
       - { label: "Body", name: "body", widget: "markdown", required: false }
       - { label: "Path", name: "path", widget: "string" }
 
@@ -47,6 +54,13 @@ collections:
           label: "Description",
           name: "description",
           widget: "string",
+          required: false,
+        }
+      - {
+          label: "Main image",
+          name: "main_image",
+          widget: "image",
+          allow_multiple: false,
           required: false,
         }
       - { label: "Body", name: "body", widget: "markdown", required: false }
