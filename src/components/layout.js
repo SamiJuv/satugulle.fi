@@ -1,10 +1,17 @@
-import React from "react"
-import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
+import React from 'react'
+import { useStaticQuery, graphql } from 'gatsby'
+import styled from 'styled-components'
 
-import Header from "./header"
+import Header from './header'
 
-const Layout = ({ children }) => {
+const Container = styled.section`
+  position: relative;
+  z-index: 2;
+  max-width: 980px;
+  margin: 0 auto;
+`
+
+const Layout = ({ children, mainImage }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -17,8 +24,8 @@ const Layout = ({ children }) => {
 
   return (
     <>
-      <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
-      <div>
+      <Header mainImage={mainImage} />
+      <Container>
         <main>{children}</main>
         <footer
           style={{
@@ -27,15 +34,11 @@ const Layout = ({ children }) => {
         >
           © {new Date().getFullYear()}, Built with
           {` `}
-          <a href="https://www.gatsbyjs.com">Gatsby</a>
+          <a href='https://www.gatsbyjs.com'>Gatsby</a>
         </footer>
-      </div>
+      </Container>
     </>
   )
-}
-
-Layout.propTypes = {
-  children: PropTypes.node.isRequired,
 }
 
 export default Layout

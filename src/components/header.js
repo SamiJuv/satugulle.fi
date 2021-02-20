@@ -1,30 +1,33 @@
-import { Link } from "gatsby"
-import PropTypes from "prop-types"
-import React from "react"
+import { Link } from 'gatsby'
+import React from 'react'
+import Img from 'gatsby-image'
+import styled from 'styled-components'
 
-const Header = ({ siteTitle }) => (
+import LogoImg from '../images/logo.svg'
+
+const Container = styled.div`
+  position: absolute;
+  top: 40px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+`
+
+const Header = ({ mainImage }) => (
   <header>
-    <div>
-      <h2 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            textDecoration: `none`
-          }}
-        >
-          {siteTitle}
+    {mainImage && (
+      <Img fluid={mainImage} />
+    )}
+
+    <Container>
+      <div className="logo">
+        <Link to='/'>
+          <img src={LogoImg} alt='Logo' />
         </Link>
-      </h2>
-    </div>
+      </div>
+    </Container>
   </header>
 )
-
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-}
-
-Header.defaultProps = {
-  siteTitle: ``,
-}
 
 export default Header

@@ -32,6 +32,13 @@ export const pageQuery = graphql`
         path
         title
         description
+        main_image {
+          childImageSharp {
+            fluid(maxWidth: 2200, maxHeight: 700) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
       }
     }
   }

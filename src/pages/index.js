@@ -2,17 +2,19 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 
 import Layout from "../components/layout"
-import Image from "../components/image"
 import SEO from "../components/seo"
 
 const IndexPage = ({ data }) => {
   const { node } = data.allMarkdownRemark.edges[0];
 
   return (
-    <Layout>
+    <Layout mainImage={node.frontmatter?.main_image?.childImageSharp.fluid}>
       <SEO title="Home" description={node.frontmatter.description} />
+      
       <Link to="/valmentaja">Valmentaja</Link>
+      
       <h1>{node.frontmatter.title}</h1>
+      
       <div
         className="page-content"
         dangerouslySetInnerHTML={{ __html: node.html }}
@@ -31,6 +33,13 @@ export const query = graphql`
           frontmatter{
             title
             description
+            main_image {
+              childImageSharp {
+                fluid(maxWidth: 2200, maxHeight: 700) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
           }
           html
         }
