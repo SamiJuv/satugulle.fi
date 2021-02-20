@@ -9,7 +9,7 @@ const Template = ({ data }) => {
 
   return (
     <Layout>
-      <SEO title={page.frontmatter.title} />
+      <SEO title={page.frontmatter.title} description={page.frontmatter.description} />
       <div className='basic-page-container'>
         <h1>{page.frontmatter.title}</h1>
         <div
@@ -31,6 +31,7 @@ export const pageQuery = graphql`
         date(formatString: "DD.MM.YYYY")
         path
         title
+        description
       }
     }
   }

@@ -10,7 +10,7 @@ const IndexPage = ({ data }) => {
 
   return (
     <Layout>
-      <SEO title="Home" />
+      <SEO title="Home" description={node.frontmatter.description} />
       <Link to="/valmentaja">Valmentaja</Link>
       <h1>{node.frontmatter.title}</h1>
       <div
@@ -30,6 +30,7 @@ export const query = graphql`
         node {
           frontmatter{
             title
+            description
           }
           html
         }
