@@ -2,10 +2,29 @@ backend:
   name: git-gateway
   branch: master
 
-media_folder: static/img
-public_folder: /img
+media_folder: static/images/uploads
+public_folder: /images/uploads
+
+site_url: https://www.satugulle.fi
 
 collections:
+  - name: "front_page"
+    label: "Frontpage"
+    folder: "content/front_page"
+    create: false
+    slug: "index"
+    media_folder: ""
+    public_folder: ""
+    path: "{{title}}/index"
+    editor:
+      preview: false
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Description", name: "description", widget: "string" }
+      - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Path", name: "path", widget: "string" }
+
   - name: "basic_page"
     label: "Basic page"
     folder: "content/basic_page"
@@ -21,4 +40,23 @@ collections:
       - { label: "Publish Date", name: "date", widget: "datetime" }
       - { label: "Description", name: "description", widget: "string" }
       - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Path", name: "path", widget: "string" }
+
+  - name: "customer_feedback"
+    label: "Customer feedback"
+    folder: "content/customer_feedback"
+    create: true
+    slug: "index"
+    media_folder: ""
+    public_folder: ""
+    path: "{{title}}/index"
+    editor:
+      preview: false
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Description", name: "description", widget: "string" }
+      - { label: "Customer name", name: "customer_name", widget: "string" }
+      - { label: "Quote", name: "quote", widget: "markdown" }
+      - { label: "Text", name: "body", widget: "markdown" }
       - { label: "Path", name: "path", widget: "string" }
