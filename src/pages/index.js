@@ -1,16 +1,41 @@
 import React from "react"
-import { Link } from "gatsby"
+import { Link, graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import Image from "../components/image"
 import SEO from "../components/seo"
 
-const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" />
-    <h2></h2>
-    <Link to="/valmentaja">Valmentaja</Link>
-  </Layout>
-)
+const IndexPage = ({ data }) => {
+  const { node } = data.allMarkdownRemark.edges[0];
+
+  return (
+    <Layout>
+      <SEO title="Home" />
+      <Link to="/valmentaja">Valmentaja</Link>
+      <h1>{node.frontmatter.title}</h1>
+      <div
+        className="page-content"
+        dangerouslySetInnerHTML={{ __html: node.html }}
+      />
+    </Layout>
+  )
+}
+
+export const query = graphql`
+  query FrontPageQuery {
+    allMarkdownRemark(
+      filter: { frontmatter: { type: { eq: "front_page" }}}
+    ) {
+      edges{
+        node {
+          frontmatter{
+            title
+          }
+          html
+        }
+      }
+    }
+  }
+`
 
 export default IndexPage
