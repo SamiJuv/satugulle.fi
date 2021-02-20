@@ -5,4 +5,5 @@ description: Instagram-valmentaja Satu Güllen kasvuvalmennukset perustuvat
   Instagramin orgaaniseen näkyvyyteen. Tutustu valmennuksiin ja varaa paikkasi!
 path: /etusivu
 type: front_page
+main_image: piirtophotography_satu_g_121.jpg
 ---
