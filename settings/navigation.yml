@@ -1,0 +1,11 @@
+nav_items:
+  - label: Etusivu
+    path: /
+  - label: Valmentaja
+    path: /valmentaja
+  - label: Valmennukset
+    path: /valmennukset
+  - label: Blogi
+    path: /blogi
+  - label: Ota yhteyttä
+    path: /ota-yhteytta
