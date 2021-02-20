@@ -3,7 +3,7 @@ import React from 'react'
 import Img from 'gatsby-image'
 import styled from 'styled-components'
 
-import Menu from './Menu';
+import Menu from './menu';
 import LogoImg from '../images/logo.svg'
 
 const Container = styled.div`
