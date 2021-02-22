@@ -103,3 +103,25 @@ collections:
       - { label: "Quote", name: "quote", widget: "markdown" }
       - { label: "Text", name: "body", widget: "markdown" }
       - { label: "Path", name: "path", widget: "string" }
+
+  - name: "blog_post"
+    label: "Blog post"
+    folder: "content/blog_post"
+    create: true
+    slug: "index"
+    media_folder: ""
+    public_folder: ""
+    path: "{{title}}/index"
+    editor:
+      preview: false
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - {
+          label: "Description",
+          name: "description",
+          widget: "string",
+          required: false,
+        }
+      - { label: "Text", name: "body", widget: "markdown" }
+      - { label: "Path", name: "path", widget: "string" }
