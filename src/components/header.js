@@ -22,7 +22,16 @@ const LogoImage = styled.img`
   max-width: 240px;
 `
 
-const Header = ({ mainImage }) => {
+const TitleContainer = styled.div`
+  max-width: 980px;
+  margin: 0 auto;
+`
+
+const H1 = styled.h1`
+  max-width: 400px;
+`
+
+const Header = ({ mainImage, titleText }) => {
   const data = useStaticQuery(graphql`
     query MenuQuery {
       allSettingsYaml {
@@ -56,6 +65,12 @@ const Header = ({ mainImage }) => {
 
           {menuItems && (
             <Menu items={menuItems} />
+          )}
+
+          {titleText && (
+            <TitleContainer>
+              <H1>{titleText}</H1>
+            </TitleContainer>
           )}
         </>
       </Container>

@@ -10,9 +10,9 @@ const Container = styled.section`
   margin: 0 auto;
 `
 
-const Layout = ({ children, mainImage }) => (
+const Layout = ({ children, mainImage, titleText }) => (
   <>
-    <Header mainImage={mainImage} />
+    <Header mainImage={mainImage} titleText={titleText} />
     <Container>
       <main>{children}</main>
       <footer
