@@ -123,5 +123,12 @@ collections:
           widget: "string",
           required: false,
         }
+      - {
+          label: "Main image",
+          name: "main_image",
+          widget: "image",
+          allow_multiple: false,
+          required: false,
+        }
       - { label: "Text", name: "body", widget: "markdown" }
       - { label: "Path", name: "path", widget: "string" }
