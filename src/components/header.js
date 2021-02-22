@@ -8,12 +8,18 @@ import LogoImg from '../images/logo.svg'
 
 const Container = styled.div`
   position: ${props => props.positionValue};
-  top: 40px;
+  top: 1.4rem;
   left: 0;
   right: 0;
 `
 const LogoContainer = styled.div`
   text-align: center;
+  margin-bottom: 0.8rem;
+`
+
+const LogoImage = styled.img`
+  margin: 0;
+  max-width: 240px;
 `
 
 const Header = ({ mainImage }) => {
@@ -44,7 +50,7 @@ const Header = ({ mainImage }) => {
         <>
           <LogoContainer>
             <Link to='/'>
-              <img src={LogoImg} alt='Logo' />
+              <LogoImage src={LogoImg} alt='Logo' />
             </Link>
           </LogoContainer>
 

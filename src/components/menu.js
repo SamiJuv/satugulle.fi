@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'gatsby'
 import styled from 'styled-components'
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
 
@@ -21,6 +20,7 @@ const ListItem = styled.li`
 
 const StyledLink = styled(AniLink)`
   text-decoration: none;
+  color: #3A3A3A;
 `
 
 const Menu = ({ items }) => (
