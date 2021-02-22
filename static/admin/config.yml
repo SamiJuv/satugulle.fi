@@ -33,6 +33,7 @@ collections:
     editor:
       preview: false
     fields:
+      - { label: "Type", name: "type", widget: "hidden", default: "front_page" }
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Publish Date", name: "date", widget: "datetime" }
       - {
@@ -62,6 +63,7 @@ collections:
     editor:
       preview: false
     fields:
+      - { label: "Type", name: "type", widget: "hidden", default: "basic_page" }
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Publish Date", name: "date", widget: "datetime" }
       - {
@@ -91,6 +93,12 @@ collections:
     editor:
       preview: false
     fields:
+      - {
+          label: "Type",
+          name: "type",
+          widget: "hidden",
+          default: "customer_feedback",
+        }
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Publish Date", name: "date", widget: "datetime" }
       - {
@@ -115,6 +123,7 @@ collections:
     editor:
       preview: false
     fields:
+      - { label: "Type", name: "type", widget: "hidden", default: "blog_post" }
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Publish Date", name: "date", widget: "datetime" }
       - {

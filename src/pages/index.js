@@ -7,6 +7,7 @@ import SEO from "../components/seo"
 const IndexPage = ({ data }) => {
   const { node: frontPageNode } = data.frontPage.edges[0];
   const blogPosts = data.blogPosts.edges;
+  console.log(data);
 
   return (
     <Layout mainImage={frontPageNode.frontmatter?.main_image?.childImageSharp.fluid}>
