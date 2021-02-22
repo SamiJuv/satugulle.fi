@@ -10,7 +10,7 @@ const IndexPage = ({ data }) => {
   const blogPosts = data.blogPosts.edges;
 
   return (
-    <Layout mainImage={frontPageNode.frontmatter?.main_image?.childImageSharp.fluid}>
+    <Layout titleText={frontPageNode.frontmatter.title} mainImage={frontPageNode.frontmatter?.main_image?.childImageSharp.fluid}>
       <SEO title="Home" description={frontPageNode.frontmatter.description} />
       
       <h1>{frontPageNode.frontmatter.title}</h1>
@@ -61,7 +61,7 @@ export const query = graphql`
             path
             main_image {
               childImageSharp {
-                fixed(width: 400) {
+                fixed(width: 300, height: 300) {
                   ...GatsbyImageSharpFixed
                 }
               }
