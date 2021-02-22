@@ -1,8 +1,9 @@
 ---
-path: "/valmentaja"
-date: 2021-02-19T17:12:33.962Z
-title: "Instagram-valmentaja Satu Gülle"
 type: basic_page
+title: Instagram-valmentaja Satu Gülle
+date: 2021-02-19T17:12:33.962Z
+main_image: satu_gülle_kanavarannassa_0.jpg
+path: /valmentaja
 ---
 
 Tavoitteenani on auttaa kunnianhimoisia yrittäjiä ja sosiaalisen median vaikuttajia menestymään Instagramissa orgaanisen kasvun avulla. Valmennuksen aikana annan sinulle selkeän käsityksen Instagramin toiminnasta, analytiikasta ja algoritmista. Oppieni avulla kasvatat Instagram-tiliäsi palvelemaan kohderyhmääsi orgaanisesti.
