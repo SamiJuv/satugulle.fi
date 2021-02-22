@@ -3,11 +3,11 @@ import { Link, graphql } from "gatsby"
 
 import Layout from "../layouts"
 import SEO from "../components/seo"
+import LatestBlogPosts from "../components/LatestBlogPosts";
 
 const IndexPage = ({ data }) => {
   const { node: frontPageNode } = data.frontPage.edges[0];
   const blogPosts = data.blogPosts.edges;
-  console.log(data);
 
   return (
     <Layout mainImage={frontPageNode.frontmatter?.main_image?.childImageSharp.fluid}>
@@ -19,6 +19,8 @@ const IndexPage = ({ data }) => {
         className="page-content"
         dangerouslySetInnerHTML={{ __html: frontPageNode.html }}
       />
+
+      <LatestBlogPosts posts={blogPosts} />
     </Layout>
   )
 }
@@ -46,12 +48,25 @@ export const query = graphql`
       }
     }
     blogPosts: allMarkdownRemark(
-      filter: { frontmatter: { type: { eq: "blog_post " }}}
+      filter: { frontmatter: { type: { eq: "blog_post" }}}
       sort: { order: DESC, fields: [frontmatter___date] }
       limit: 3
     ) {
       edges {
         node {
+          frontmatter {
+            title
+            description
+            date
+            path
+            main_image {
+              childImageSharp {
+                fixed(width: 400) {
+                  ...GatsbyImageSharpFixed
+                }
+              }
+            }
+          }
           html
         }
       }
