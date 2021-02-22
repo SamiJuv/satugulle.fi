@@ -5,17 +5,18 @@ import Layout from "../layouts"
 import SEO from "../components/seo"
 
 const IndexPage = ({ data }) => {
-  const { node } = data.allMarkdownRemark.edges[0];
+  const { node: frontPageNode } = data.frontPage.edges[0];
+  const blogPosts = data.blogPosts.edges;
 
   return (
-    <Layout mainImage={node.frontmatter?.main_image?.childImageSharp.fluid}>
-      <SEO title="Home" description={node.frontmatter.description} />
+    <Layout mainImage={frontPageNode.frontmatter?.main_image?.childImageSharp.fluid}>
+      <SEO title="Home" description={frontPageNode.frontmatter.description} />
       
-      <h1>{node.frontmatter.title}</h1>
+      <h1>{frontPageNode.frontmatter.title}</h1>
       
       <div
         className="page-content"
-        dangerouslySetInnerHTML={{ __html: node.html }}
+        dangerouslySetInnerHTML={{ __html: frontPageNode.html }}
       />
     </Layout>
   )
@@ -23,10 +24,10 @@ const IndexPage = ({ data }) => {
 
 export const query = graphql`
   query FrontPageQuery {
-    allMarkdownRemark(
+    frontPage: allMarkdownRemark(
       filter: { frontmatter: { type: { eq: "front_page" }}}
     ) {
-      edges{
+      edges {
         node {
           frontmatter{
             title
@@ -39,6 +40,17 @@ export const query = graphql`
               }
             }
           }
+          html
+        }
+      }
+    }
+    blogPosts: allMarkdownRemark(
+      filter: { frontmatter: { type: { eq: "blog_post " }}}
+      sort: { order: DESC, fields: [frontmatter___date] }
+      limit: 3
+    ) {
+      edges {
+        node {
           html
         }
       }
