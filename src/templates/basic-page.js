@@ -2,6 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 
 import Layout from '../layouts'
+import Container from '../components/Container'
 import SEO from '../components/seo'
 
 const Template = ({ data }) => {
@@ -10,13 +11,16 @@ const Template = ({ data }) => {
   return (
     <Layout>
       <SEO title={page.frontmatter.title} description={page.frontmatter.description} />
-      <div className='basic-page-container'>
-        <h1>{page.frontmatter.title}</h1>
-        <div
-          className='page-content'
-          dangerouslySetInnerHTML={{ __html: page.html }}
-        />
-      </div>
+      
+      <Container>
+        <div className='basic-page-container'>
+          <h1>{page.frontmatter.title}</h1>
+          <div
+            className='page-content'
+            dangerouslySetInnerHTML={{ __html: page.html }}
+          />
+        </div>
+      </Container>
     </Layout>
   )
 }

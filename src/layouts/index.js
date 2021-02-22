@@ -1,30 +1,23 @@
 import React from 'react'
-import styled from 'styled-components'
 
 import Header from '../components/header'
 
-const Container = styled.section`
-  position: relative;
-  z-index: 2;
-  max-width: 980px;
-  margin: 0 auto;
-`
+import './index.css';
 
-const Layout = ({ children, mainImage, titleText }) => (
+const Layout = ({ children, secondContainerContent, mainImage, titleText }) => (
   <>
     <Header mainImage={mainImage} titleText={titleText} />
-    <Container>
-      <main>{children}</main>
-      <footer
-        style={{
-          marginTop: `2rem`,
-        }}
-      >
-        © {new Date().getFullYear()}, Built with
-        {` `}
-        <a href='https://www.gatsbyjs.com'>Gatsby</a>
-      </footer>
-    </Container>
+    
+    <main>{children}</main>
+    <footer
+      style={{
+        marginTop: `2rem`,
+      }}
+    >
+      © {new Date().getFullYear()}, Built with
+      {` `}
+      <a href='https://www.gatsbyjs.com'>Gatsby</a>
+    </footer>
   </>
 )
 

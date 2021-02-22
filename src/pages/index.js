@@ -1,26 +1,34 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
+import styled from 'styled-components'
 
 import Layout from "../layouts"
+import Container from '../components/Container'
 import SEO from "../components/seo"
 import LatestBlogPosts from "../components/LatestBlogPosts";
+
+const MainContent = styled.div`
+  margin-bottom: 4rem;
+`
 
 const IndexPage = ({ data }) => {
   const { node: frontPageNode } = data.frontPage.edges[0];
   const blogPosts = data.blogPosts.edges;
 
   return (
-    <Layout titleText={frontPageNode.frontmatter.title} mainImage={frontPageNode.frontmatter?.main_image?.childImageSharp.fluid}>
+    <Layout 
+      titleText={frontPageNode.frontmatter.title} 
+      mainImage={frontPageNode.frontmatter?.main_image?.childImageSharp.fluid}
+    >
       <SEO title="Home" description={frontPageNode.frontmatter.description} />
       
-      <h1>{frontPageNode.frontmatter.title}</h1>
-      
-      <div
-        className="page-content"
-        dangerouslySetInnerHTML={{ __html: frontPageNode.html }}
-      />
+      <Container>
+        <MainContent dangerouslySetInnerHTML={{ __html: frontPageNode.html }} />
+      </Container>
 
-      <LatestBlogPosts posts={blogPosts} />
+      <Container bgColor='#fcfcfc'>
+        <LatestBlogPosts posts={blogPosts} />
+      </Container>
     </Layout>
   )
 }

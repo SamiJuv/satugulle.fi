@@ -5,8 +5,12 @@ import AniLink from 'gatsby-plugin-transition-link/AniLink'
 import striptags from 'striptags'
 import teasy from 'teasy'
 
-const Title = styled.h2`
+const TitleContainer = styled.div`
   text-align: center;
+`
+
+const Title = styled.h2`
+  position: relative;
 `
 
 const Post = styled.div`
@@ -35,7 +39,9 @@ const LatestBlogPosts = ({ posts }) => {
 
   return (
     <>
-      <Title>Blogi</Title>
+      <TitleContainer>
+        <Title>Blogi</Title>
+      </TitleContainer>
 
       {posts.map(({ node: post }, index) => {
         let teaser = striptags(post.html);
