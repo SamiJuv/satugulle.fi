@@ -23,7 +23,7 @@ const Template = ({ data }) => {
       )}
 
       <Container>
-        <div className='basic-page-container'>
+        <div className='blog-post-container'>
           <h1>{page.frontmatter.title}</h1>
           <div
             className='page-content'
@@ -38,7 +38,7 @@ const Template = ({ data }) => {
 export default Template;
 
 export const pageQuery = graphql`
-  query BasicPageByPath($path: String!) {
+  query BlogPostByPath($path: String!) {
     markdownRemark(frontmatter: { path: { eq: $path } }) {
       html
       frontmatter {

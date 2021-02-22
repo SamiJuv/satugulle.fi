@@ -35,8 +35,6 @@ const StyledLink = styled(AniLink)`
 `
 
 const LatestBlogPosts = ({ posts }) => {
-  console.log(posts);
-
   return (
     <>
       <TitleContainer>
@@ -46,7 +44,6 @@ const LatestBlogPosts = ({ posts }) => {
       {posts.map(({ node: post }, index) => {
         let teaser = striptags(post.html);
         teaser = teasy(teaser, 140, 220);
-        console.log(teaser);
 
         return (
           <Post key={post.frontmatter.date} flexDir={(index % 2 === 0) ? 'row' : 'row-reverse'}>
