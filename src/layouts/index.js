@@ -4,9 +4,9 @@ import Header from '../components/header'
 
 import './index.css';
 
-const Layout = ({ children, secondContainerContent, mainImage, titleText }) => (
+const Layout = ({ children, location, mainImage, titleText }) => (
   <>
-    <Header mainImage={mainImage} titleText={titleText} />
+    <Header mainImage={mainImage} titleText={titleText} location={location} />
     
     <main>{children}</main>
     <footer

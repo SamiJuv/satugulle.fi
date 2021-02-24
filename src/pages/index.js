@@ -1,5 +1,5 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
+import { graphql } from "gatsby"
 import styled from 'styled-components'
 
 import Layout from "../layouts"
@@ -11,7 +11,7 @@ const MainContent = styled.div`
   margin-bottom: 4rem;
 `
 
-const IndexPage = ({ data }) => {
+const IndexPage = ({ data, location }) => {
   const { node: frontPageNode } = data.frontPage.edges[0];
   const blogPosts = data.blogPosts.edges;
 
@@ -19,6 +19,7 @@ const IndexPage = ({ data }) => {
     <Layout 
       titleText={frontPageNode.frontmatter.title} 
       mainImage={frontPageNode.frontmatter?.main_image?.childImageSharp.fixed}
+      location={location}
     >
       <SEO title="Home" description={frontPageNode.frontmatter.description} />
       

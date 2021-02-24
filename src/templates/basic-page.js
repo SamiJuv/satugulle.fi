@@ -11,11 +11,11 @@ const Image = styled(Img)`
   margin-top: 1rem;
 `
 
-const Template = ({ data }) => {
+const Template = ({ data, location }) => {
   const { markdownRemark: page } = data;
 
   return (
-    <Layout>
+    <Layout location={location}>
       <SEO title={page.frontmatter.title} description={page.frontmatter.description} />
       
       {page.frontmatter.main_image?.childImageSharp && (

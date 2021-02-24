@@ -1,6 +1,6 @@
 import { Link, useStaticQuery, graphql } from 'gatsby'
 import React from 'react'
-import Img from 'gatsby-image'
+import Img from 'gatsby-image/withIEPolyfill'
 import styled from 'styled-components'
 
 import Menu from './menu';
@@ -36,10 +36,10 @@ const H1 = styled.h1`
   max-width: 400px;
   margin: 0;
   position: absolute;
-  bottom: 150px;
+  bottom: 270px;
 `
 
-const Header = ({ mainImage, titleText }) => {
+const Header = ({ location, mainImage, titleText }) => {
   const data = useStaticQuery(graphql`
     query MenuQuery {
       allSettingsYaml {
@@ -60,7 +60,20 @@ const Header = ({ mainImage, titleText }) => {
   return (
     <HeaderEl>
       {mainImage && (
-        <Img fixed={mainImage} />
+        <Img 
+          fixed={mainImage} 
+          objectFit='cover'
+          objectPosition='50% 50%'
+          style={{
+            width: '100%'
+          }}
+          imgStyle={{
+            maxWidth: 'none',
+            width: '2200px',
+            left: '50%',
+            marginLeft: '-1100px'
+          }}
+        />
       )}
 
       <Container positionValue={mainImage ? 'absolute' : 'relative'} >
@@ -72,7 +85,7 @@ const Header = ({ mainImage, titleText }) => {
           </LogoContainer>
 
           {menuItems && (
-            <Menu items={menuItems} />
+            <Menu items={menuItems} location={location} />
           )}
 
           {titleText && (

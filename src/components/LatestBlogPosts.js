@@ -5,18 +5,27 @@ import AniLink from 'gatsby-plugin-transition-link/AniLink'
 import striptags from 'striptags'
 import teasy from 'teasy'
 
+const Wrapper = styled.div`
+  padding: 4rem 0;
+`
+
 const TitleContainer = styled.div`
   text-align: center;
 `
 
 const Title = styled.h2`
   position: relative;
+  margin-top: 0;
 `
 
 const Post = styled.div`
   display: flex;
   flex-direction: ${props => props.flexDir};
   margin-bottom: 6rem;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
 `
 
 const TextContainer = styled.div`
@@ -41,7 +50,7 @@ const StyledLink = styled(AniLink)`
 
 const LatestBlogPosts = ({ posts }) => {
   return (
-    <>
+    <Wrapper>
       <TitleContainer>
         <Title>Blogi</Title>
       </TitleContainer>
@@ -52,15 +61,15 @@ const LatestBlogPosts = ({ posts }) => {
 
         return (
           <Post key={post.frontmatter.date} flexDir={(index % 2 === 0) ? 'row' : 'row-reverse'}>
-            <StyledLink paintDrip duration={0.2} hex="#f6f6f6" to={post.frontmatter.path}><Image fixed={post.frontmatter?.main_image?.childImageSharp.fixed} /></StyledLink>
+            <StyledLink paintDrip duration={0.2} hex="#ffffff" to={post.frontmatter.path}><Image fixed={post.frontmatter?.main_image?.childImageSharp.fixed} /></StyledLink>
             <TextContainer reverse={(index % 2 !== 0) ? true : false}>
-              <h3><StyledLink paintDrip duration={0.2} hex="#f6f6f6" to={post.frontmatter.path}>{post.frontmatter.title}</StyledLink></h3>
+              <h3><StyledLink paintDrip duration={0.2} hex="#ffffff" to={post.frontmatter.path}>{post.frontmatter.title}</StyledLink></h3>
               <p>{teaser}</p>
             </TextContainer>
           </Post>
         )
       })}
-    </>
+    </Wrapper>
   )
 }
 
