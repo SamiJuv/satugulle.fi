@@ -6,6 +6,7 @@ import styled from 'styled-components'
 import Layout from '../layouts'
 import Container from '../components/Container'
 import SEO from '../components/seo'
+import ServiceListing from '../components/ServiceListing'
 
 const Image = styled(Img)`
   margin-top: 1rem;
@@ -31,6 +32,10 @@ const Template = ({ data, location }) => {
           />
         </div>
       </Container>
+
+      {location.pathname === '/valmennukset' && (
+        <ServiceListing />
+      )}
     </Layout>
   )
 }

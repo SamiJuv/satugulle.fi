@@ -22,6 +22,10 @@ const ListItem = styled.li`
 const StyledLink = styled(AniLink)`
   text-decoration: none;
   color: #3A3A3A;
+
+  &:hover {
+    text-decoration: none;
+  }
 `
 
 const Underline = styled.div`

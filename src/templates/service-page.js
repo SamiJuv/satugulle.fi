@@ -4,13 +4,13 @@ import { graphql } from 'gatsby'
 import Layout from '../layouts'
 import SEO from '../components/seo'
 
-const Template = ({ data }) => {
+const Template = ({ data, location }) => {
   const { markdownRemark: page } = data;
 
   return (
-    <Layout>
+    <Layout location={location}>
       <SEO title={page.frontmatter.title} />
-      <div className='customer-feedback-container'>
+      <div className='service-page-container'>
         <h1>{page.frontmatter.title}</h1>
         <div
           className='page-content'
@@ -24,7 +24,7 @@ const Template = ({ data }) => {
 export default Template;
 
 export const pageQuery = graphql`
-  query CustomerFeedbackByPath($path: String!) {
+  query ServicePageByPath($path: String!) {
     markdownRemark(frontmatter: { path: { eq: $path } }) {
       html
       frontmatter {
