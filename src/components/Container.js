@@ -3,6 +3,8 @@ import styled from 'styled-components'
 
 const Wrapper = styled.section`
   background-color: ${props => props.bgColor ? props.bgColor : 'transparent'};
+  border-top: 1px solid;
+  border-color: ${props => props.borderColor ? props.borderColor : 'transparent'};
 `
 
 const StyledContainer = styled.div`
@@ -12,8 +14,8 @@ const StyledContainer = styled.div`
   margin: 0 auto;
 `
 
-const Container = ({ children, bgColor }) => (
-  <Wrapper bgColor={bgColor}>
+const Container = ({ children, bgColor, borderColor }) => (
+  <Wrapper bgColor={bgColor} borderColor={borderColor}>
     <StyledContainer >{children}</StyledContainer>
   </Wrapper>
 )

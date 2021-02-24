@@ -18,7 +18,7 @@ const IndexPage = ({ data }) => {
   return (
     <Layout 
       titleText={frontPageNode.frontmatter.title} 
-      mainImage={frontPageNode.frontmatter?.main_image?.childImageSharp.fluid}
+      mainImage={frontPageNode.frontmatter?.main_image?.childImageSharp.fixed}
     >
       <SEO title="Home" description={frontPageNode.frontmatter.description} />
       
@@ -26,7 +26,7 @@ const IndexPage = ({ data }) => {
         <MainContent dangerouslySetInnerHTML={{ __html: frontPageNode.html }} />
       </Container>
 
-      <Container bgColor='#fcfcfc'>
+      <Container bgColor='#fcfcfc' borderColor='#f5f5f5'>
         <LatestBlogPosts posts={blogPosts} />
       </Container>
     </Layout>
@@ -45,8 +45,8 @@ export const query = graphql`
             description
             main_image {
               childImageSharp {
-                fluid(maxWidth: 2200, maxHeight: 700) {
-                  ...GatsbyImageSharpFluid
+                fixed(width: 2200, height: 700) {
+                  ...GatsbyImageSharpFixed
                 }
               }
             }
@@ -69,7 +69,7 @@ export const query = graphql`
             path
             main_image {
               childImageSharp {
-                fixed(width: 300, height: 300) {
+                fixed(width: 300, height: 300, quality: 100) {
                   ...GatsbyImageSharpFixed
                 }
               }

@@ -6,11 +6,16 @@ import styled from 'styled-components'
 import Menu from './menu';
 import LogoImg from '../images/logo.svg'
 
+const HeaderEl = styled.header`
+  position: relative;
+`
+
 const Container = styled.div`
   position: ${props => props.positionValue};
   top: 1.4rem;
   left: 0;
   right: 0;
+  height: 100%;
 `
 const LogoContainer = styled.div`
   text-align: center;
@@ -29,6 +34,9 @@ const TitleContainer = styled.div`
 
 const H1 = styled.h1`
   max-width: 400px;
+  margin: 0;
+  position: absolute;
+  bottom: 150px;
 `
 
 const Header = ({ mainImage, titleText }) => {
@@ -50,9 +58,9 @@ const Header = ({ mainImage, titleText }) => {
   const menuItems = data?.allSettingsYaml?.edges[0]?.node.nav_items;
 
   return (
-    <header>
+    <HeaderEl>
       {mainImage && (
-        <Img fluid={mainImage} />
+        <Img fixed={mainImage} />
       )}
 
       <Container positionValue={mainImage ? 'absolute' : 'relative'} >
@@ -74,7 +82,7 @@ const Header = ({ mainImage, titleText }) => {
           )}
         </>
       </Container>
-    </header>
+    </HeaderEl>
   )
 }
 
