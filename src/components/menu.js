@@ -37,7 +37,7 @@ const Menu = ({ items, location }) => (
   <MenuContainer>
     <List>
       {items.map(item => {
-        const isActive = ((item.path.length > 1 && location.pathname.includes(item.path)) || (item.path === '/' && location.pathname === item.path));
+        const isActive = ((item.path.length > 1 && location?.pathname.includes(item.path)) || (item.path === '/' && location?.pathname === item.path));
         
         return (
           <ListItem key={item.path}>
