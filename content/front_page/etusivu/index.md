@@ -1,11 +1,11 @@
 ---
+type: front_page
 title: Avaimet Instagram-menestystarinaasi
 date: 2021-02-19T17:12:33.962Z
 description: Instagram-valmentaja Satu Güllen kasvuvalmennukset perustuvat
   Instagramin orgaaniseen näkyvyyteen. Tutustu valmennuksiin ja varaa paikkasi!
+main_image: frontpage.jpg
 path: /etusivu
-type: front_page
-main_image: piirtophotography_satu_g_121.jpg
 ---
 ## Miksi Instagram?
 
