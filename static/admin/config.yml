@@ -82,36 +82,6 @@ collections:
       - { label: "Body", name: "body", widget: "markdown", required: false }
       - { label: "Path", name: "path", widget: "string" }
 
-  - name: "customer_feedback"
-    label: "Customer feedback"
-    folder: "content/customer_feedback"
-    create: true
-    slug: "index"
-    media_folder: ""
-    public_folder: ""
-    path: "{{title}}/index"
-    editor:
-      preview: false
-    fields:
-      - {
-          label: "Type",
-          name: "type",
-          widget: "hidden",
-          default: "customer_feedback",
-        }
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Publish Date", name: "date", widget: "datetime" }
-      - {
-          label: "Description",
-          name: "description",
-          widget: "string",
-          required: false,
-        }
-      - { label: "Customer name", name: "customer_name", widget: "string" }
-      - { label: "Quote", name: "quote", widget: "markdown" }
-      - { label: "Text", name: "body", widget: "markdown" }
-      - { label: "Path", name: "path", widget: "string" }
-
   - name: "blog_post"
     label: "Blog post"
     folder: "content/blog_post"
@@ -140,4 +110,41 @@ collections:
           required: false,
         }
       - { label: "Text", name: "body", widget: "markdown" }
+      - { label: "Path", name: "path", widget: "string" }
+
+  - name: "service"
+    label: "Service"
+    folder: "content/service"
+    create: true
+    slug: "index"
+    media_folder: ""
+    public_folder: ""
+    path: "{{title}}/index"
+    editor:
+      preview: false
+    fields:
+      - { label: "Type", name: "type", widget: "hidden", default: "service" }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - {
+          label: "Description",
+          name: "description",
+          widget: "string",
+          required: false,
+        }
+      - {
+          label: "Main image",
+          name: "main_image",
+          widget: "image",
+          allow_multiple: false,
+          required: false,
+        }
+      - { label: "Text", name: "body", widget: "markdown" }
+      - label: Customer feedback
+        name: customer_feedback
+        widget: list
+        fields:
+          - { label: Customer name, name: customer_name, widget: string }
+          - { label: Text, name: text, widget: text }
+          - { label: Link url, name: url, widget: string }
       - { label: "Path", name: "path", widget: "string" }
